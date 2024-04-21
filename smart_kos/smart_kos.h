@@ -13,6 +13,9 @@
 #include <IRremoteESP8266.h>
 #include <IRsend.h>
 
+#define PIN_INDICATOR D0
+#define PIN_IR_SENDER D2
+
 // ESP8266WebServer server(80);
 
 ///////////////////////// Config /////////////////////////
