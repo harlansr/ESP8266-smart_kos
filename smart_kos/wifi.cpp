@@ -1,12 +1,11 @@
 #include "smart_kos.h"
-IPAddress host_local_IP(192,168,1,1);
-IPAddress host_subnet(255,255,255,0);
-IPAddress host_gateway(192,168,1,1);
+// IPAddress host_local_IP(192,168,1,1);
+// IPAddress host_subnet(255,255,255,0);
+// IPAddress host_gateway(192,168,1,1);
 
 // int PIN_INDICATOR = D0;
-int PIN_LED = D1;
-const char *host_ssid = "Secret Wifi";
-const char *host_password = 0; 
+// const char *host_ssid = "Secret Wifi";
+// const char *host_password = 0; 
 
 void WifiScan(){
   Serial.println("-------------------------------------");
@@ -60,10 +59,10 @@ bool WifiConnect(const char* a_ssid, const char* a_password){
 }
 
 void WifiHosted(){
-  WiFi.softAPConfig(host_local_IP, host_gateway, host_subnet);
-  WiFi.softAP(host_ssid, host_password);       //Memulai membuat acces point
+  WiFi.softAPConfig(HOST_LOCAL_IP, HOST_GATEWAY, HOST_SUBNET);
+  WiFi.softAP(WIFI_SSID, WIFI_PASSWORD);       //Memulai membuat acces point
   Serial.print("Access Point \"");
-  Serial.print(host_ssid);
+  Serial.print(WIFI_SSID);
   Serial.println("\" started");
   Serial.print("IP address:\t");
   Serial.println(WiFi.softAPIP()); 

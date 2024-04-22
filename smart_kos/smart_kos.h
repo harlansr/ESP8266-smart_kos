@@ -13,23 +13,21 @@
 #include <IRremoteESP8266.h>
 #include <IRsend.h>
 
-#define PIN_INDICATOR D0
-#define PIN_IR_SENDER D2
+#define PIN_INDICATOR   D0
+#define PIN_IR_SENDER   D2
+#define WIFI_HOSTNAME   "SmartKos V0.1"
+#define WIFI_SSID       "Secret Wifi"
+#define WIFI_PASSWORD   0
 
-// ESP8266WebServer server(80);
+#define HOST_LOCAL_IP   (192,168,1,1)
+#define HOST_SUBNET     (255,255,255,0)
+#define HOST_GATEWAY    (192,168,1,1)
 
-///////////////////////// Config /////////////////////////
-// IPAddress host_local_IP();
-// IPAddress host_subnet();
-// IPAddress host_gateway();
-// int PIN_INDICATOR();
-// int PIN_LED();
-
-///////////////////////// Helper /////////////////////////
+///////////////////////// helper.cpp /////////////////////////
 String HelpLoadFileString(const char * path);
 File HelpLoadFile(const char * path);
 
-///////////////////////// Web Controller /////////////////////////
+///////////////////////// web_controller.cpp /////////////////////////
 void WebRun();
 void WebServerRun();
 void reqPageLogin();
@@ -37,15 +35,17 @@ void reqLogin();
 void reqPing();
 void reqConfig();
 
-/////////////////////////// WiFi ///////////////////////////////////
+/////////////////////////// wifi.cpp ///////////////////////////////////
 void WifiScan();
 void WifiHosted();
 bool WifiConnect(const char* a_ssid, const char* a_password);
 
-/////////////////////////// Sensor ////////////////////////////////
+/////////////////////////// sensor.cpp ////////////////////////////////
 void RemoteStart();
 void RemoteSend(String type);
 
-
+/////////////////////////// web_client.cpp ////////////////////////////
+void sendRequest();
+JsonDocument processResponse(String jsonResponse);
 
 #endif
