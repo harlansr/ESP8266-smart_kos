@@ -1,13 +1,6 @@
-// #include <ESP8266WiFi.h>
-// #include <WiFiClient.h>
-// #include <WiFiClientSecure.h> 
-// #include <ESP8266WebServer.h>
-// #include <ESP8266HTTPClient.h>
 #include <ArduinoJson.h>
-// #include <EEPROM.h>
-// #include <FS.h>
-
 #include "smart_kos.h"
+#include "config.cpp"
 
 void setup(void)
 { 
@@ -29,23 +22,20 @@ void setup(void)
   //   Serial.print("Connect to Wifi..");
   // }
 
-  // WifiHosted();
+  WifiHosted();
 //  WifiConnect("Jaringan Kamar", "harlan123");
-  // WebServerRun();
+  WebServerRun();
 }
 
 void loop() {
-  // WebRun();
+  WebRun();
   // sendRequest();
   // delay(1000);
-  // String ssid = stringLoad(0);
-  // Serial.print("SSID : ");
-  // Serial.println(ssid);
-  // WifiScan();
+  // TEMP_CURRENT = 3;
 
-  RemoteSend("off");
+  RemoteSend("off",0);
   delay(5000);
-  RemoteSend("on");
+  RemoteSend("on",0);
   delay(5000);
 
   // digitalWrite(D0, LOW);
@@ -56,12 +46,5 @@ void loop() {
   // digitalWrite(D0, HIGH);
 }
 
-// void switchPin(int pin){
-//   if(digitalRead(pin) == HIGH){
-//     digitalWrite(PIN_INDICATOR, LOW);
-//   }else{
-//     digitalWrite(PIN_INDICATOR, HIGH);
-//   }
-// }
 
 

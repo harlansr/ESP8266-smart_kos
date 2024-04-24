@@ -23,6 +23,7 @@
 #define HOST_SUBNET     (255,255,255,0)
 #define HOST_GATEWAY    (192,168,1,1)
 
+// #define TEMP_CURRENT    0
 ///////////////////////// helper.cpp /////////////////////////
 String HelpLoadFileString(const char * path);
 File HelpLoadFile(const char * path);
@@ -42,7 +43,7 @@ bool WifiConnect(const char* a_ssid, const char* a_password);
 
 /////////////////////////// sensor.cpp ////////////////////////////////
 void RemoteStart();
-void RemoteSend(String type);
+void RemoteSend(String type, int temp);
 
 /////////////////////////// web_client.cpp ////////////////////////////
 void sendRequest();
