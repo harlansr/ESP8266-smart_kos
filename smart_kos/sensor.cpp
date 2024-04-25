@@ -13,7 +13,6 @@ uint16_t signal_temp[][211] = {
     {9220, 4332, 432, 5443, 453}    // signal_temp[28]
 };
 
-
 void RemoteStart(){
   irsend.begin();
 }
